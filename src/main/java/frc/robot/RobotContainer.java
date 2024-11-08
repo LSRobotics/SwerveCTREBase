@@ -21,6 +21,7 @@ import frc.robot.Constants.IndexerConstants;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.Constants.WristConstants;
+import frc.robot.commands.Autos;
 import frc.robot.commands.ClearIntakeCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.PassToShooterCmd;
@@ -52,7 +53,7 @@ public class RobotContainer {
   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
 
   /* Path follower */
-  private Command runAuto = drivetrain.getAutoPath("Tests");
+  //private Command runAuto = drivetrain.getAutoPath("Tests");
 
   private final Telemetry logger = new Telemetry(MaxSpeed);
 
@@ -66,7 +67,7 @@ public class RobotContainer {
 
   private TimeOfFlight indexBeamBreak = new TimeOfFlight(IndexerConstants.indexBeamBreakChannel);
 
-  public static SendableChooser<Command> autoChooser;
+  //public static SendableChooser<Command> autoChooser;
 
   private void configureBindings() {
     drivetrain.setDefaultCommand( // Drivetrain will execute this command periodically
@@ -137,7 +138,7 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
     /* First put the drivetrain into auto run mode, then run the auto */
-    return autoChooser.getSelected();
+    return Autos.exampleAuto(null);
   }
 
   public boolean notePresent() {
